@@ -7,7 +7,14 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db, updateUserStatus } from "../../lib/firebase";
-import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import upload from "../../lib/upload";
 
 const Login = () => {
@@ -87,7 +94,11 @@ const Login = () => {
     const { email, password } = Object.fromEntries(formData);
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
       await updateUserStatus(user.uid, true);
     } catch (err) {
@@ -136,7 +147,6 @@ const Login = () => {
           <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
         </form>
       </div>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
     </div>
   );
 };
