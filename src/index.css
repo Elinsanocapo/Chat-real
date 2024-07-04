@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url("./Fondo.png");
+  background-image: url("/public/spide.gif");
   display: flex;
   align-items: center;
   justify-content: center;

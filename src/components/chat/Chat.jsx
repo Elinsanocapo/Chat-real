@@ -115,7 +115,7 @@ const Chat = () => {
   };
 
   if (chat === null) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   return (
@@ -184,7 +184,7 @@ const Chat = () => {
           onClick={handleSend}
           disabled={isCurrentUserBlocked || isReceiverBlocked}
         >
-          Send
+          Enviar
         </button>
       </div>
     </div>

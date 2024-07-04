@@ -93,15 +93,24 @@
       }
 
       &.logout {
-        padding: 10px;
-        background-color: #1a73e8;
-        
+        padding: 8px;
+        background-color: #2d343d;
+        border: 2px solid white; /* Añadir borde blanco */
+        color: white; /* Asegúrate de que el texto sea visible */
+
         /* Propiedades adicionales para cambiar la ubicación */
         position: absolute; /* o relative, fixed, dependiendo de tus necesidades */
-        top: 60px; /* Ajusta esta propiedad para mover el botón verticalmente */
-        right: 1340px; /* Ajusta esta propiedad para mover el botón horizontalmente */
+        top: 66px; /* Ajusta esta propiedad para mover el botón verticalmente */
+        right: 893px; /* Ajusta esta propiedad para mover el botón horizontalmente */
+
+        border-radius: 5px; /* Opcional: para bordes redondeados */
+        transition: all 0.3s ease; /* Transición suave para el efecto hover */
       }
-      
+
+      &.logout:hover {
+        background-color: #40474f; /* Color de fondo al pasar el ratón */
+        border-color: #cecccc; /* Cambiar color del borde al pasar el ratón */
+      }
     }
   }
 }

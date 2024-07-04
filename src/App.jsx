@@ -1,9 +1,10 @@
-// src/App.jsx
 import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chat from "./components/chat/Chat";
 import Detail from "./components/detail/Detail";
 import List from "./components/list/List";
 import Login from "./components/login/Login";
+import Register from "./components/register/registerpapu";
 import Notification from "./components/notification/Notification";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, updateUserStatus } from "./lib/firebase";
@@ -56,21 +57,29 @@ const App = () => {
     };
   }, [fetchUserInfo, setUserStatus]);
 
-  if (isLoading) return <div className="loading">Loading...</div>;
+  if (isLoading) return <div className="loading">cargarndo...</div>;
 
   return (
-    <div className="container">
-      {currentUser ? (
-        <>
-          <List />
-          {chatId && <Chat />}
-          {chatId && <Detail />}
-        </>
-      ) : (
-        <Login />
-      )}
-      <Notification />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/registerpapu" element={<Register />} />
+        <Route path="/" element={
+          <div className="container">
+            {currentUser ? (
+              <>
+                <List />
+                {chatId && <Chat />}
+                {chatId && <Detail />}
+              </>
+            ) : (
+              <Login />
+            )}
+            <Notification />
+          </div>
+        } />
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </Router>
   );
 };
 
